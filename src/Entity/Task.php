@@ -31,7 +31,7 @@ class Task
     private ?\DateTimeImmutable $expiredAt = null;
 
     #[ORM\Column(nullable: true, options: ["default" => false])]
-    private ?bool $status = null;
+    private ?bool $status = false;
 
     public function getId(): ?int
     {

@@ -3,8 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Task;
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -28,9 +28,8 @@ class TaskType extends AbstractType
                 'widget' => 'single_text',
                 'required' => false,
                 'label' => 'Date d\'expiration',
-            ])
-            ->add('status')
-        ;
+            ]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void

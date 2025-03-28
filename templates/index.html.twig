@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des Tâches</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Date de création</th>
+                <th>Date d'expiration</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.title }}</td>
+                <td>{{ task.content }}</td>
+                <td>{{ task.createdAt ? task.createdAt|date('Y-m-d H:i') : '' }}</td>
+                <td>{{ task.expiredAt ? task.expiredAt|date('Y-m-d H:i') : 'Pas de date' }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune tâche trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_task_add') }}">Ajouter une nouvelle tâche</a>
+{% endblock %}

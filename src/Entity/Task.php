@@ -17,7 +17,12 @@ class Task
 
     #[ORM\Column(length: 50)]
     #[Assert\NotNull(message: 'Le titre ne peut pas être null')]
-    #[Assert\Length(min: 2, max: 50, message: 'Le titre doit faire au moins 2 caractères')]
+    #[Assert\Length(
+        min: 2,
+        max: 50,
+        minMessage: 'Le titre doit faire au moins {{ limit }} caractères',
+        maxMessage: 'Le titre ne peut pas dépasser {{ limit }} caractères'
+    )]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]

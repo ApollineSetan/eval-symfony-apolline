@@ -3,8 +3,6 @@
 {% block body %}
     <h1>Ajouter une nouvelle tâche</h1>
 
-    {% include 'flash_messages.html.twig' %}
-
     {{ form_start(form) }}
         {{ form_row(form.title) }}
         {{ form_row(form.content) }}
